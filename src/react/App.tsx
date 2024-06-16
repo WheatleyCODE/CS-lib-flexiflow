@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import '../flexiflow/index';
 import './App.css';
 
 export const App = () => {
