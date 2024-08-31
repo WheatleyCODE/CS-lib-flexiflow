@@ -1,0 +1,1 @@
+export {checkBefore} from './checkBefore';
