@@ -1,0 +1,1 @@
+export {checkAfter} from './checkAfter';
