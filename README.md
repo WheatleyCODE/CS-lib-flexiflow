@@ -28,3 +28,9 @@
 ### [SyncPromise](./src/flexiflow/promise/index.md)
 
 ### [Примеры использования Effector + Flexiflow в React](./src/react/index.md)
+
+## Старт
+
+`yarn` - Установка зависимостей  
+`yarn test` - Запуск тестов  
+`yarn dev` - Запуск демо
