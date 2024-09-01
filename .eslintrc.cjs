@@ -21,5 +21,6 @@ module.exports = {
     'prefer-rest-params': 0,
     '@typescript-eslint/no-unsafe-declaration-merging': 0,
     '@typescript-eslint/no-explicit-any': 'warn',
+    '@typescript-eslint/ban-types': 'warn',
   },
 }

@@ -19,7 +19,6 @@ export function pipeFn<UT, A, B, C, D, E, F>(
   de: (d: D) => E,
   ef: (d: E) => F,
 ): (t: UT) => F;
-// export function pipeFn<UT, A, B, C, D, E, F>(ta: (t: UT) => A, ab?: (a: A) => B, bc?: (b: B) => C, cd?: (c: C) => D, de?: (d: D) => E, ef?: (d: E) => F): (t: UT) => F {
 export function pipeFn(...fns: []): (arg: unknown) => unknown {
   return (arg: unknown) => pipe(arg, ...fns);
 }

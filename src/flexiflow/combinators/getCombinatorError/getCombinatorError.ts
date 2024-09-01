@@ -12,7 +12,8 @@ type CombinatorNames =
   | 'watch'
   | 'merge'
   | 'checkAfter'
-  | 'checkBefore';
+  | 'checkBefore'
+  | 'seqTime';
 
 export function getCombinatorError(combinatorName: CombinatorNames): Flexible<unknown> {
   return new Flexible((subscriber) => {

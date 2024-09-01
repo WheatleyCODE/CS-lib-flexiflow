@@ -2,6 +2,7 @@
 
 - [get](./get/index.md) - Обеспечивает подписку на Effector store или Flexible
 - [seq](./seq/index.md) - Ждет пока произойдут все события
+- [seqTime](./seqTime/index.md) - Ждет пока произойдут все события, но если истечет время нужно будет заново ждать события
 - [map](./map/index.md) - Преобразовывает значение в другое
 - [filter](./filter/index.md) - Исполняются только те события которые удовлетворяют функции predicate
 - [debounce](./debounce/index.md) - Накладывает контракт debounce на события из аргументов
@@ -13,66 +14,39 @@
 - [checkBefore](./checkBefore/index.md) - Проверяет N событий после элемента
 - [checkAfter](./checkAfter/index.md) - Проверяет N событий перед элементом
 
-### React Example
+### Description
+
+Все комбинаторы могут принимать 3 типа аргументов, сделано так специально для удобства работы в Effector
+
+1. Аргументы:
 
 ```ts
-useEffect(() => {
-  const observable = debounce(
-    filter(
-      scheduler(
-        seq(
-          seq($count1, debounce($count2, 100)),
-          seq($count3, throttle($count4, 200)),
-          enumerable($count5),
-          checkBefore(
-            watch($count1, console.log),
-            $count2,
-            pipeFn(
-              () => console.log('pipe 1'),
-              () => console.log('pipe 2'),
-              () => console.log('pipe 3'),
-              () => true,
-            ),
-          ),
-        ),
-        seq(
-          seq($string1, get($string2)),
-          seq($string3, repeat($string4, 4)),
-          map($count5, () => 10),
-          checkAfter(
-            memo($count1),
-            $count2,
-            pipeFn(
-              () => console.log('pipe 1'),
-              () => console.log('pipe 2'),
-              () => console.log('pipe 3'),
-              () => true,
-            ),
-          ),
-        ),
-        300,
-      ),
-      pipeFn(
-        () => console.log('Ничего не понятно'),
-        () => console.log('.'),
-        () => console.log('Но очень интересно'),
-        () => true,
-      ),
-    ),
-    10,
-  );
-
-  const unsub = observable.subscribe(
-    pipeFn(
-      (v) => v,
-      (v) => v,
-      (v) => v,
-      ([counts]) => {
-        console.log(counts, 'counts');
-      },
-    ),
-  );
-
-  return () => unsub.unsubscribe();
-}, []);
+const flexible = merge($number0, $string0);
 ```
+
+2. Объект:
+
+```ts
+const flexible = merge({a: $number0, b: $string0});
+```
+
+3. Массив:
+
+```ts
+const flexible = merge([$number0, $string0]);
+```
+
+Значения аргументов во всех комбинаторах могут быть 2 типами:
+
+1. Unit из Effector - Это любые Event, Store, Effect
+2. Flexible - Аналог Observable из RxJS
+
+Комбинаторы всегда возвращают Flexible
+
+```ts
+const flexible = get(merge($number0, merge(get(get($string0)))), eventChanged, sideEffectFx);
+```
+
+### Effector + Flexiflow + React examples
+
+[Примеры](../../react/index.md)
