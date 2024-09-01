@@ -1,17 +1,30 @@
-# Flexiflow JS
+# Flexiflow v0.0.1
 
-<img src="./assets/flexiflow-logo.svg" alt="drawing" width="300"/>
+<image src="./flexiflow-logo.svg" style="border-radius: 5rem" width="400" alt="Flexiflow logo">
 
-## 🦄 Fantasy lib for your perfect web app 🦄
+<br />
 
-Core библиотека для построения гибких приложений
+Библиотека призванная расширить экосистему Effector и решить проблему связи effector с другими библиотеками и хуками.
+Так же решить проблему написания сложных реактивных событий, изменений состояния и удобной реакции на них.
 
-- [Flexiflow Core](./src/flexiflow/index.md)
-- [Example React App](./src/react/App.md)
+Так же решение проблем написания синхронного и асинхронного кода.
 
-Designed by Fantasy Land  
-[Fantasy Land Specification](https://github.com/fantasyland/fantasy-land)
+#### Effector - Пиши бизнес логику с легкостью - [Ссылка](https://effector.dev/)
 
-## Documentation
+#### Flexiflow - Реагируй на бизнес логику с легкостью
 
-[Documentation](./src/flexiflow/index.md)
+### Effector + Flexiflow = ❤️❤️❤️
+
+## Небольшие описания:
+
+### [Combinators](./src/flexiflow/combinators/index.md)
+
+### [Flexible](./src/flexiflow/flexible/index.md)
+
+### [FP functions](./src/flexiflow/fp/index.md)
+
+### [Optional](./src/flexiflow/optional/index.md)
+
+### [SyncPromise](./src/flexiflow/promise/index.md)
+
+### [Примеры использования Effector + Flexiflow в React](./src/react/index.md)
