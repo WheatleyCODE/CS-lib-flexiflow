@@ -32,7 +32,7 @@ export function merge(...args: unknown[]): Flexible<unknown> {
       return get(firstArg[0]);
     }
 
-    return seqForArray(firstArg);
+    return mergeForArray(firstArg);
   }
 
   if (isFlexibleOrUnit(firstArg) && argsLength === 1) {
@@ -59,13 +59,13 @@ export function merge(...args: unknown[]): Flexible<unknown> {
   }
 
   if (args.every((arg) => isFlexibleOrUnit(arg))) {
-    return seqForArray(args as FlexibleOrUnit<unknown>[]);
+    return mergeForArray(args as FlexibleOrUnit<unknown>[]);
   }
 
   return getCombinatorError('merge');
 }
 
-function seqForArray(units: FlexibleOrUnit<unknown>[]): Flexible<unknown> {
+function mergeForArray(units: FlexibleOrUnit<unknown>[]): Flexible<unknown> {
   return new Flexible((subscriber) => {
     const unsubscribes = units.map((unit) => {
       const current = get(unit);
