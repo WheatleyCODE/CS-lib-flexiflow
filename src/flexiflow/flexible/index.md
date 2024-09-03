@@ -6,8 +6,6 @@
 
 ```ts
 const flexible = new Flexible<number>((subscriber) => {
-  canBeSubscriber = subscriber;
-
   subscriber.next(1);
   subscriber.next(2);
   subscriber.next(3);
